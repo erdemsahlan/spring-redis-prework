@@ -1,5 +1,6 @@
 package com.preworkspringredis.controllers;
 
+import com.preworkspringredis.dto.DateValiteDto;
 import com.preworkspringredis.dto.DayDto;
 import com.preworkspringredis.services.DateValidationService;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class DateValidationController {
     }
 
     @PostMapping("/validate")
-    public LocalDateTime validate(@RequestBody DayDto day) throws ParseException {
-        var test = dateValidationService.valiteDate(day.getDay());
+    public DateValiteDto validate(@RequestBody DayDto day) throws ParseException {
+        var test = dateValidationService.validateDate(day.getDay());
         return test;
     }
 }
